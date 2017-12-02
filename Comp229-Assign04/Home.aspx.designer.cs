@@ -11,7 +11,7 @@ namespace Comp229_Assign04
 {
 
 
-    public partial class _Default
+    public partial class Home
     {
     }
 }
