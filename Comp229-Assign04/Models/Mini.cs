@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Comp229_Assign04.Model
+namespace Comp229_Assign04.Models
 {
     /// <summary>
     /// Class representing the JSON model to be used.
