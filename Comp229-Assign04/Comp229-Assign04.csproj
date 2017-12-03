@@ -141,6 +141,7 @@
     <Content Include="Data\Assign04.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\Banner.png" />
     <Content Include="Model.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
