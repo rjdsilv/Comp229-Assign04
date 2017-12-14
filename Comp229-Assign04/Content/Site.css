@@ -150,6 +150,7 @@ a {
     display: block;
     overflow: auto;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .model-inclusion-subpanel {

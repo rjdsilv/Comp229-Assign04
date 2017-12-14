@@ -127,5 +127,15 @@ namespace Comp229_Assign04
                 }
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ExportModelsButton_Click(object sender, EventArgs e)
+        {
+            JsonHelper.Serialize(Server.MapPath("."), Application["ModelList"]);
+        }
     }
 }

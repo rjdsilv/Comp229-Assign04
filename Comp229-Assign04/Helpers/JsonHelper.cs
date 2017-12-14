@@ -13,7 +13,7 @@ namespace Comp229_Assign04.Helpers
     public class JsonHelper
     {
         // The file location.
-        private const string JSON_FILE_NAME = @"Data\Assign04.json";
+        public const string JSON_FILE_NAME = @"Data\Assign04.json";
 
         /// <summary>
         /// Deserializes the content from the file contained in JSON_FILE_NAME into a list of Mini objects.
@@ -23,7 +23,7 @@ namespace Comp229_Assign04.Helpers
         public static List<Mini> Deserialize(string basePath)
         {
             // Build the file name.
-            var filePath = basePath.EndsWith("\\") ? basePath + JSON_FILE_NAME : basePath + "\\" + JSON_FILE_NAME;
+            var filePath = GetFilePath(basePath);
 
             if (File.Exists(filePath))
             {
@@ -44,6 +44,32 @@ namespace Comp229_Assign04.Helpers
             Trace.TraceError(string.Format("The file {0} could not be found!!!", JSON_FILE_NAME));
             Trace.Flush();
             return new List<Mini>();
+        }
+
+        public static void Serialize(string basePath, object value)
+        {
+            // Build the file name.
+            var filePath = GetFilePath(basePath);
+
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    // Reads the file and deserialize it into a List of Mini objects.
+                    string serialized = JsonConvert.SerializeObject(value, Formatting.Indented);
+                    File.WriteAllText(filePath, serialized);
+                }
+                catch (Exception ex)
+                {
+                    // If any error occurs, just return an empty list.
+                    Trace.TraceError(string.Format("The object could not be serialized to the file {0} !!! - Exception message {1)", JSON_FILE_NAME, ex.Message));
+                }
+            }
+        }
+
+        public static string GetFilePath(string basePath)
+        {
+            return basePath.EndsWith("\\") ? basePath + JSON_FILE_NAME : basePath + "\\" + JSON_FILE_NAME; ;
         }
     }
 }

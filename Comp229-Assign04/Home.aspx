@@ -23,7 +23,14 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+
+            <div class="col-sm-12 model-input-container" style="height: 70px;">
+                <asp:Button ID="ExportModelsButton" Text="Export Model List" CssClass="model-input-button" OnClick="ExportModelsButton_Click" runat="server" style="margin-top: 20px;" CausesValidation="false"/>
+            </div>
         </div>
+
+        <hr />
+        <br />
 
         <asp:Panel ID="IncludeModelPanel" runat="server" CssClass="model-inclusion-panel">
             <div class="model-inclusion-panel-title">
@@ -481,7 +488,7 @@
                 </asp:Panel>
             </div>
 
-            <div class="model-input-container" style="height: 50px;">
+            <div class="col-sm-12 model-input-container" style="height: 50px;">
                 <asp:Button ID="AddModelButton" Text="Add Model" CssClass="model-input-button" OnClick="AddModelButton_Click" runat="server" />
             </div>
         </asp:Panel>
