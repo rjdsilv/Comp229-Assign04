@@ -14,6 +14,10 @@ footer {
     width: 100%;
 }
 
+hr {
+    border-top: 1px solid #aaa;
+}
+
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -117,7 +121,6 @@ a {
     padding: 5px;
     display: block;
     overflow: auto;
-    margin-top: 15px;
 }
 
 .model-inclusion-panel-title {
@@ -200,4 +203,25 @@ a {
     background-color: rgb(80, 37, 37);
     box-shadow: 0 3px 2px #555555;
     transform: translateY(4px);
+}
+
+
+.model-success-message,
+.model-error-message {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+}
+
+.model-error-message {
+    color: red;
+}
+
+.model-success-message {
+    color: rgb(0, 150, 0);
+}
+
+.model-error-message-hidden,
+.model-success-message-hidden {
+    display: none;
 }

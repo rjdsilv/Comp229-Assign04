@@ -62,12 +62,12 @@ namespace Comp229_Assign04.Helpers
                 try
                 {
                     // Reads the file and deserialize it into a List of Mini objects.
-                    File.WriteAllText(filePath, JsonConvert.SerializeObject(value, Formatting.Indented););
+                    File.WriteAllText(filePath, JsonConvert.SerializeObject(value, Formatting.Indented));
                 }
                 catch (Exception ex)
                 {
                     // If any error occurs, just return an empty list.
-                    Trace.TraceError(string.Format("The object could not be serialized to the file {0} !!! - Exception message {1)", filePath, ex.Message));
+                    Trace.TraceError(string.Format("The object could not be serialized to the file {0} !!! - Exception message {1}", filePath, ex.Message));
                     Trace.Flush();
                 }
             }

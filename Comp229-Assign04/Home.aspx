@@ -2,6 +2,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container body-content">
+        <%-- Error Panel --%>
+        <asp:Panel ID="ErrorPanel" runat="server" CssClass="model-error-message-hidden">
+            <div><%= message %></div>
+        </asp:Panel>
+
+        <%-- Student success message panel --%>
+        <asp:Panel ID="SuccessPanel" runat="server" CssClass="model-success-message-hidden">
+            <div><%= message %></div>
+        </asp:Panel>
+
+        <br />
+
+        <%-- Model list --%>
         <div class="model-list-container">
             <asp:Repeater ID="ModelRepeater" runat="server">
                 <ItemTemplate>
@@ -15,7 +28,12 @@
                                 </div>
                                 <div class="model-image">
                                     <a href="Model.aspx?model=<%# Eval("Name") %>">
-                                        <asp:Image ID="ModelImage" AlternateText='<%# Eval("Name") %>' ImageUrl='<%# Eval("ImageUrl") %>' CssClass="model-image-small" runat="server" ToolTip="Click on the image to see the model details." />
+                                        <asp:Image ID="ModelImage"
+                                            AlternateText='<%# Eval("Name") %>'
+                                            ImageUrl='<%# Eval("ImageUrl") %>'
+                                            CssClass="model-image-small"
+                                            runat="server"
+                                            ToolTip="Click on the image to see the model details." />
                                     </a>
                                 </div>
                             </div>
@@ -24,13 +42,73 @@
                 </ItemTemplate>
             </asp:Repeater>
 
-            <div class="col-sm-12 model-input-container" style="height: 70px;">
-                <asp:Button ID="ExportModelsButton" Text="Export Model List" CssClass="model-input-button" OnClick="ExportModelsButton_Click" runat="server" style="margin-top: 20px;" CausesValidation="false"/>
+            <div class="col-sm-12" style="display: block; overflow: auto;">
+                <br /><hr /><br />
+            </div>
+
+            <div class="col-sm-12 model-inclusion-panel">
+                <div class="model-inclusion-panel-title">
+                    <asp:Label Text="Model Operations" runat="server" />
+                </div>
+                <div class="model-input-container">
+                    <div class="col-sm-6">
+                        <asp:TextBox ID="EmailAddressTextBox"
+                            ToolTip="Enter the email address here"
+                            TextMode="Email"
+                            CssClass="model-input"
+                            runat="server"
+                            placeholder="Receiver Email Address (eg: email@email.com)" />
+                    </div>
+                    <div class="col-sm-6">
+                        <asp:TextBox ID="EmailNameTextBox"
+                            ToolTip="Enter the email name here"
+                            TextMode="SingleLine"
+                            CssClass="model-input"
+                            runat="server"
+                            placeholder="Receiver Name" />
+                    </div>
+                    <div class="col-sm-6 model-validator-message-container">
+                        <asp:RequiredFieldValidator ID="EmailAddressTextBox_RFV"
+                            ControlToValidate="EmailAddressTextBox"
+                            Display="Dynamic"
+                            ErrorMessage="Email Address is required"
+                            CssClass="model-input-error"
+                            ValidationGroup="EmailValidationGroup"
+                            runat="server" />
+                    </div>
+                    <div class="col-sm-6 model-validator-message-container">
+                        <asp:RequiredFieldValidator ID="EmailNameTextBox_RFV"
+                            ControlToValidate="EmailNameTextBox"
+                            Display="Dynamic"
+                            ErrorMessage="Receiver Name is required"
+                            CssClass="model-input-error"
+                            ValidationGroup="EmailValidationGroup"
+                            runat="server" />
+                    </div>
+                    <div class="col-sm-12 model-input-container" style="height: 70px;">
+                        <asp:Button ID="ExportModelsButton"
+                            Text="Export Model List"
+                            CssClass="model-input-button"
+                            OnClick="ExportModelsButton_Click"
+                            CausesValidation="false"
+                            runat="server"
+                            Style="margin-top: 20px;" />
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <asp:Button ID="SendEmailButton"
+                            Text="Email Model File"
+                            CssClass="model-input-button"
+                            OnClick="SendEmailButton_Click"
+                            ValidationGroup="EmailValidationGroup"
+                            runat="server"
+                            Style="margin-top: 20px;" />
+                    </div>
+                </div>
             </div>
         </div>
 
-        <hr />
-        <br />
+        <br /><hr /><br />
 
         <asp:Panel ID="IncludeModelPanel" runat="server" CssClass="model-inclusion-panel">
             <div class="model-inclusion-panel-title">
@@ -87,6 +165,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model name is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-3 model-validator-message-container">
@@ -95,6 +174,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model faction is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-2 model-validator-message-container">
@@ -103,6 +183,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model rank is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RangeValidator ID="ModelRankTextBox_RV"
                             ControlToValidate="ModelRankTextBox"
@@ -112,6 +193,7 @@
                             MaximumValue="20"
                             ErrorMessage="Rank must be >= 1"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-2 model-validator-message-container">
@@ -120,6 +202,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model base is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RangeValidator ID="ModelBaseTextBox_RV"
                             ControlToValidate="ModelBaseTextBox"
@@ -129,6 +212,7 @@
                             MaximumValue="20"
                             ErrorMessage="Base must be > 1"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-2 model-validator-message-container">
@@ -137,6 +221,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model size is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RangeValidator ID="ModelSizeTextBox_RV"
                             ControlToValidate="ModelSizeTextBox"
@@ -146,6 +231,7 @@
                             MaximumValue="20"
                             ErrorMessage="Size must be > 1"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                 </div>
@@ -184,6 +270,7 @@
                             Display="Dynamic"
                             ErrorMessage="The deployment zone is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-5 model-validator-message-container">
@@ -192,6 +279,7 @@
                             Display="Dynamic"
                             ErrorMessage="At least one model type is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                 </div>
@@ -214,6 +302,7 @@
                             Display="Dynamic"
                             ErrorMessage="At least one model type is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RegularExpressionValidator
                             ID="ModelDefenceChartTextBox_REV"
@@ -222,6 +311,7 @@
                             ValidationExpression="^([A-Za-z]+[,]){9}[A-Za-z]+$"
                             ErrorMessage="The defense chart must have 10 defensive abilities separated by ,"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                 </div>
@@ -269,6 +359,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model size is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RangeValidator ID="ModelMobilityTextBox_RV"
                             ControlToValidate="ModelMobilityTextBox"
@@ -278,6 +369,7 @@
                             MaximumValue="20"
                             ErrorMessage="Mobility must be >= 1"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-3 model-validator-message-container">
@@ -286,6 +378,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model size is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RangeValidator ID="ModelWillPowerTextBox_RV"
                             ControlToValidate="ModelWillPowerTextBox"
@@ -295,6 +388,7 @@
                             MaximumValue="20"
                             ErrorMessage="Will Power must be > 1"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-3 model-validator-message-container">
@@ -303,6 +397,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model size is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RangeValidator ID="ModelResilianceTextBox_RV"
                             ControlToValidate="ModelResilianceTextBox"
@@ -312,6 +407,7 @@
                             MaximumValue="20"
                             ErrorMessage="Mobility must be > 1"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                     <div class="col-sm-3 model-validator-message-container">
@@ -320,6 +416,7 @@
                             Display="Dynamic"
                             ErrorMessage="Model size is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RangeValidator ID="ModelWoundsTextBox_RV"
                             ControlToValidate="ModelWoundsTextBox"
@@ -329,10 +426,11 @@
                             MaximumValue="20"
                             ErrorMessage="Wounds must be > 1"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                 </div>
-                
+
                 <%-- Fifth line of inputs --%>
                 <div class="model-input-container">
                     <div class="col-sm-12">
@@ -351,6 +449,7 @@
                             Display="Dynamic"
                             ErrorMessage="At least one model type is required"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                         <asp:RegularExpressionValidator
                             ID="ModelImageUrlTextBox_REV"
@@ -359,6 +458,7 @@
                             ValidationExpression="^http[s]*:\/\/[A-Za-z0-9\-_]+\.([A-Za-z0-9\-_]+[\.\/])*([A-Za-z0-9\-_])*$"
                             ErrorMessage="The defense chart must have 10 defensive abilities separated by ,"
                             CssClass="model-input-error"
+                            ValidationGroup="AddModelValidationGroup"
                             runat="server" />
                     </div>
                 </div>
@@ -410,6 +510,7 @@
                                 Display="Dynamic"
                                 ErrorMessage="The action name is required"
                                 CssClass="model-input-error"
+                                ValidationGroup="AddModelValidationGroup"
                                 runat="server" />
                         </div>
                         <div class="col-sm-3 model-validator-message-container">
@@ -418,6 +519,7 @@
                                 Display="Dynamic"
                                 ErrorMessage="The action type is required"
                                 CssClass="model-input-error"
+                                ValidationGroup="AddModelValidationGroup"
                                 runat="server" />
                         </div>
                         <div class="col-sm-3 model-validator-message-container">
@@ -426,6 +528,7 @@
                                 Display="Dynamic"
                                 ErrorMessage="The action range is required"
                                 CssClass="model-input-error"
+                                ValidationGroup="AddModelValidationGroup"
                                 runat="server" />
                             <asp:RangeValidator ID="ModelActionRatingTextBox_RV"
                                 ControlToValidate="ModelActionRatingTextBox"
@@ -435,6 +538,7 @@
                                 MaximumValue="20"
                                 ErrorMessage="Action rating must be > 1"
                                 CssClass="model-input-error"
+                                ValidationGroup="AddModelValidationGroup"
                                 runat="server" />
                         </div>
                         <div class="col-sm-3 model-validator-message-container">
@@ -443,6 +547,7 @@
                                 Display="Dynamic"
                                 ErrorMessage="The action range is required"
                                 CssClass="model-input-error"
+                                ValidationGroup="AddModelValidationGroup"
                                 runat="server" />
                         </div>
                     </div>
@@ -489,7 +594,12 @@
             </div>
 
             <div class="col-sm-12 model-input-container" style="height: 50px;">
-                <asp:Button ID="AddModelButton" Text="Add Model" CssClass="model-input-button" OnClick="AddModelButton_Click" runat="server" />
+                <asp:Button ID="AddModelButton"
+                    Text="Add Model"
+                    CssClass="model-input-button"
+                    OnClick="AddModelButton_Click"
+                    ValidationGroup="AddModelValidationGroup"
+                    runat="server" />
             </div>
         </asp:Panel>
     </div>

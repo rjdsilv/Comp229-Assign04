@@ -13,6 +13,24 @@ namespace Comp229_Assign04 {
     public partial class Home {
         
         /// <summary>
+        /// ErrorPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ErrorPanel;
+        
+        /// <summary>
+        /// SuccessPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel SuccessPanel;
+        
+        /// <summary>
         /// ModelRepeater control.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,42 @@ namespace Comp229_Assign04 {
         protected global::System.Web.UI.WebControls.Repeater ModelRepeater;
         
         /// <summary>
+        /// EmailAddressTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailAddressTextBox;
+        
+        /// <summary>
+        /// EmailNameTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailNameTextBox;
+        
+        /// <summary>
+        /// EmailAddressTextBox_RFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailAddressTextBox_RFV;
+        
+        /// <summary>
+        /// EmailNameTextBox_RFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailNameTextBox_RFV;
+        
+        /// <summary>
         /// ExportModelsButton control.
         /// </summary>
         /// <remarks>
@@ -29,6 +83,15 @@ namespace Comp229_Assign04 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ExportModelsButton;
+        
+        /// <summary>
+        /// SendEmailButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SendEmailButton;
         
         /// <summary>
         /// IncludeModelPanel control.

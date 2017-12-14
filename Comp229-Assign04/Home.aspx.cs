@@ -9,6 +9,8 @@ namespace Comp229_Assign04
 {
     public partial class Home : Page
     {
+        protected string message = "";
+
         /// <summary>
         /// Loads the page with all the models from the JSON file displaying them as a list.
         /// </summary>
@@ -35,8 +37,10 @@ namespace Comp229_Assign04
         /// <param name="e">The event arguments.</param>
         protected void AddModelButton_Click(object sender, EventArgs e)
         {
-            (Application["ModelList"] as List<Mini>).Add(BuildModelFromInputs());
+            Mini mini = BuildModelFromInputs();
+            (Application["ModelList"] as List<Mini>).Add(mini);
             DisplayModelList();
+            ShowSuccessMessage(string.Format("Model {0} successfully added to the model list.", mini.Name));
             ClearPageTextBoxes(this);
         }
 
@@ -48,6 +52,19 @@ namespace Comp229_Assign04
         protected void ExportModelsButton_Click(object sender, EventArgs e)
         {
             JsonHelper.Serialize(Server.MapPath("."), Application["ModelList"]);
+            ShowSuccessMessage("Model list successfully exported to Model file.");
+        }
+
+        /// <summary>
+        /// Sends the e-mail to user on the specified address.
+        /// </summary>
+        /// <param name="sender">The event sender</param>
+        /// <param name="e">The event arguments</param>
+        protected void SendEmailButton_Click(object sender, EventArgs e)
+        {
+            EmailHelper.SendEmail(EmailAddressTextBox.Text, EmailNameTextBox.Text, Server.MapPath("."));
+            ShowSuccessMessage(string.Format("Model file successfully sent to {0} at {1}", EmailNameTextBox.Text, EmailAddressTextBox.Text));
+            ClearPageTextBoxes(this);
         }
 
         /// <summary>
@@ -136,6 +153,26 @@ namespace Comp229_Assign04
                     ClearPageTextBoxes(currControl);
                 }
             }
+        }
+
+        /// <summary>
+        /// Shows to the user any unexpecte error that may occur during the database communication.
+        /// </summary>
+        /// <param name="message">The error message to be shown.</param>
+        private void ShowErrorMessage(string message)
+        {
+            this.message = string.Format("<hr/>The following unexpected error has occurred: <b>{0}</b><hr/>", message);
+            ErrorPanel.CssClass = "model-error-message";
+        }
+
+        /// <summary>
+        /// Shows to the user any unexpecte error that may occur during the database communication.
+        /// </summary>
+        /// <param name="message">The error message to be shown.</param>
+        private void ShowSuccessMessage(string message)
+        {
+            this.message = string.Format("<hr/>{0}<hr/>", message);
+            SuccessPanel.CssClass = "model-success-message";
         }
     }
 }
