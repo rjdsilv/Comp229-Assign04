@@ -10,10 +10,10 @@ namespace Comp229_Assign04
     public partial class Home : Page
     {
         /// <summary>
-        /// 
+        /// Loads the page with all the models from the JSON file displaying them as a list.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The event sender</param>
+        /// <param name="e">The event arguments</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,10 +29,10 @@ namespace Comp229_Assign04
         }
 
         /// <summary>
-        ///     
+        /// Add a new model to the existing list of models.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The event sender</param>
+        /// <param name="e">The event arguments.</param>
         protected void AddModelButton_Click(object sender, EventArgs e)
         {
             (Application["ModelList"] as List<Mini>).Add(BuildModelFromInputs());
@@ -41,7 +41,17 @@ namespace Comp229_Assign04
         }
 
         /// <summary>
-        /// 
+        /// Serializes the current list of models and saves it to a JSON file.
+        /// </summary>
+        /// <param name="sender">The event sender</param>
+        /// <param name="e">The event arguments</param>
+        protected void ExportModelsButton_Click(object sender, EventArgs e)
+        {
+            JsonHelper.Serialize(Server.MapPath("."), Application["ModelList"]);
+        }
+
+        /// <summary>
+        /// Displays the model list on the user's screen..
         /// </summary>
         private void DisplayModelList()
         {
@@ -51,9 +61,9 @@ namespace Comp229_Assign04
         }
 
         /// <summary>
-        /// 
+        /// Read all the validated input and transforms the data entered by the user into a model to be put on the list.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The built model.</returns>
         private Mini BuildModelFromInputs()
         {
             // Action fields.
@@ -111,7 +121,7 @@ namespace Comp229_Assign04
         }
 
         /// <summary>
-        /// 
+        /// Clears all the text boxes under the given control.
         /// </summary>
         private void ClearPageTextBoxes(Control control)
         {
@@ -126,16 +136,6 @@ namespace Comp229_Assign04
                     ClearPageTextBoxes(currControl);
                 }
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ExportModelsButton_Click(object sender, EventArgs e)
-        {
-            JsonHelper.Serialize(Server.MapPath("."), Application["ModelList"]);
         }
     }
 }
