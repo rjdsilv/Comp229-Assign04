@@ -35,7 +35,8 @@ namespace Comp229_Assign04.Helpers
                 catch(Exception ex)
                 {
                     // If any error occurs, just return an empty list.
-                    Trace.TraceError(string.Format("The file {0} cannot be used or could not be found!!! - Exception message {1)", JSON_FILE_NAME, ex.Message));
+                    Trace.TraceError(string.Format("The file {0} cannot be used or could not be found!!! - Exception message {1)", filePath, ex.Message));
+                    Trace.Flush();
                     return new List<Mini>();
                 }
             }
@@ -46,6 +47,11 @@ namespace Comp229_Assign04.Helpers
             return new List<Mini>();
         }
 
+        /// <summary>
+        /// Serializes the list of models and saves on the JSON file.
+        /// </summary>
+        /// <param name="basePath">The JSON file's base path</param>
+        /// <param name="value">The value to be serialized</param>
         public static void Serialize(string basePath, object value)
         {
             // Build the file name.
@@ -56,17 +62,22 @@ namespace Comp229_Assign04.Helpers
                 try
                 {
                     // Reads the file and deserialize it into a List of Mini objects.
-                    string serialized = JsonConvert.SerializeObject(value, Formatting.Indented);
-                    File.WriteAllText(filePath, serialized);
+                    File.WriteAllText(filePath, JsonConvert.SerializeObject(value, Formatting.Indented););
                 }
                 catch (Exception ex)
                 {
                     // If any error occurs, just return an empty list.
-                    Trace.TraceError(string.Format("The object could not be serialized to the file {0} !!! - Exception message {1)", JSON_FILE_NAME, ex.Message));
+                    Trace.TraceError(string.Format("The object could not be serialized to the file {0} !!! - Exception message {1)", filePath, ex.Message));
+                    Trace.Flush();
                 }
             }
         }
 
+        /// <summary>
+        /// Retrieves the JSON file path to read the serialized data or the write deserialized data.
+        /// </summary>
+        /// <param name="basePath">The JSON file's base path</param>
+        /// <returns>The full JSON file's path.</returns>
         public static string GetFilePath(string basePath)
         {
             return basePath.EndsWith("\\") ? basePath + JSON_FILE_NAME : basePath + "\\" + JSON_FILE_NAME; ;
