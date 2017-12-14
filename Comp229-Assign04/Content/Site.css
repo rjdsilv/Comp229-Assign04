@@ -58,7 +58,7 @@ a {
 .hero-image {
     background-image: url("../Images/Banner.png");
     width: 100%;
-    height: 265px;
+    height: 230px;
     margin-bottom: 30px;
     text-align: justify;
     color: #333;
@@ -68,6 +68,135 @@ a {
     /* https://pixabay.com */
     height: 100%;
     width: 100%;
-    padding: 50px 0;
+    padding: 35px 0;
     font-size: 20px;
+}
+
+.model-list-container {
+    overflow: auto;
+    display: block;
+}
+
+.model-outer-border {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 7px 7px;
+    height: 205px;
+    margin-bottom: 10px;
+}
+
+.model-content {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.model-name {
+    font-size: 20px;
+    font-weight: bold;
+    height: 30px;
+    color: #757575;
+    margin-bottom: 10px;
+}
+
+.model-image {
+    width: 150px;
+    height: 150px;
+}
+
+.model-image-small {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.model-inclusion-panel {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    text-align: center;
+    padding: 5px;
+    display: block;
+    overflow: auto;
+    margin-top: 15px;
+}
+
+.model-inclusion-panel-title {
+    background-color: rgb(100, 57, 57);
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.model-inclusion-panel-container {
+    display: block;
+    overflow: auto;
+}
+
+.model-input {
+    border: 1px solid rgb(100, 57, 57);
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(245, 225, 225);
+    color: rgb(100, 57, 57);
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.model-input-container {
+    display: block;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.model-inclusion-subpanel {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+    display: block;
+    overflow: auto;
+}
+
+.model-inclusion-subpanel-title {
+    background-color: rgba(230, 109, 36, 1);
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.model-validator-message-container {
+    text-align: left;
+}
+
+.model-input-error {
+    color: red;
+    font-size: 14px;
+}
+
+.model-input-button {
+    border: 1px solid rgb(100, 57, 57);
+    border-radius: 8px;
+    padding: 5px 40px;
+    background-color: rgb(100, 57, 57);
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 7px 2px #a5a5a5;
+}
+
+.model-input-button:hover {
+    background-color: rgb(80, 37, 37);
+}
+
+.model-input-button:active {
+    background-color: rgb(80, 37, 37);
+    box-shadow: 0 3px 2px #555555;
+    transform: translateY(4px);
 }

@@ -8,6 +8,8 @@ namespace Comp229_Assign04.Models
     /// </summary>
     public class Mini
     {
+        public static char[] SEPARATOR = new char[] { ',' };
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -73,6 +75,9 @@ namespace Comp229_Assign04.Models
 
         [JsonProperty("range")]
         public string Range { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
     }
 
     /// <summary>

@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Game.Me</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -48,26 +48,18 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="brand-logo">
-                        <a class="navbar-brand" runat="server" href="~/">Me</a>
+                        <a class="navbar-brand" runat="server" href="~/Home">Me</a>
                     </div>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/Home">Home</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="hero-image">
-            <div class="black-transparency">
-                <div class="col-sm-3">
-                    <p>Wrath of Kings is a miniatures war game, where players take command of the armies of one of the five kingdoms of Arikania!</p>
-                    <p>Scalable from 10 to 50 models per side, now you can vie for the throne of the Ancient King!</p>
-                </div>
-                <div class="col-sm-9">&nbsp;</div>
-            </div>
-        </div>
+        <div class="hero-image"></div>
 
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
