@@ -14,23 +14,20 @@ namespace Comp229_Assign04
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            // Saves the list on a session so it can be serializaed later.
+            if (Application["ModelList"] == null)
             {
-                // Saves the list on a session so it can be serializaed later.
-                if (Application["ModelList"] == null)
-                {
-                    Application["ModelList"] = JsonHelper.Deserialize(Server.MapPath("."));
-                }
+                Application["ModelList"] = JsonHelper.Deserialize(Server.MapPath("."));
+            }
 
-                // Only displays the model list if coming directly to this page.
-                if (string.IsNullOrWhiteSpace(Request.QueryString["model"]))
-                {
-                    DisplayModelList();
-                }
-                else
-                {
-                    SelectModel();
-                }
+            // Only displays the model list if coming directly to this page.
+            if (string.IsNullOrWhiteSpace(Request.QueryString["model"]))
+            {
+                DisplayModelList();
+            }
+            else
+            {
+                SelectModel();
             }
         }
 
@@ -41,7 +38,19 @@ namespace Comp229_Assign04
         /// <param name="e">The event arguments.</param>
         protected void DeleteModelButton_Click(object sender, EventArgs e)
         {
+            (Application["ModelList"] as List<Mini>).Remove(selectedModel);
+            Session["RemovedModel"] = selectedModel;
+            Response.Redirect("~/Home");
+        }
 
+        /// <summary>
+        /// Sends the user to an update page to update the model
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event arguments.</param>
+        protected void UpdateModelLinkButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(string.Format("~/Update.aspx?model={0}", selectedModel.Name));
         }
 
         /// <summary>

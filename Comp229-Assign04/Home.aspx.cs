@@ -21,9 +21,15 @@ namespace Comp229_Assign04
             if (!IsPostBack)
             {
                 // Saves the list on a session so it can be serializaed later.
-                if (Application["ModelList"] == null)
+                if (null == Application["ModelList"])
                 {
                     Application["ModelList"] = JsonHelper.Deserialize(Server.MapPath("."));
+                }
+
+                if (null != Session["RemovedModel"])
+                {
+                    ShowSuccessMessage(string.Format("Model {0} deleted successfully!!!", (Session["RemovedModel"] as Mini).Name));
+                    Session["RemovedModel"] = null;
                 }
 
                 DisplayModelList();

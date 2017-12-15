@@ -199,7 +199,7 @@
                 </div>
                 <hr />
                 <div class="model-buttons-container">
-                    <asp:LinkButton ID="UpdateModelLinkButton" CssClass="model-input-button" Text="Update Model" runat="server" />
+                    <asp:LinkButton ID="UpdateModelLinkButton" CssClass="model-input-button" Text="Update Model" runat="server" OnClick="UpdateModelLinkButton_Click" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="DeleteModelButton" CssClass="model-input-button" Text="Delete Model" runat="server" OnClick="DeleteModelButton_Click" />
                 </div>
