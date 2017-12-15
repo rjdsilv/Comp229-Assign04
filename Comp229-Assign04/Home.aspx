@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Comp229_Assign04.Home" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="HomeContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container body-content">
         <%-- Error Panel --%>
         <asp:Panel ID="ErrorPanel" runat="server" CssClass="model-error-message-hidden">

@@ -225,3 +225,135 @@ a {
 .model-success-message-hidden {
     display: none;
 }
+
+.model-detail-container {
+    width: 100%;
+    height: 100%;
+}
+
+.model-detail-name-faction {
+    text-align: center;
+    height: 75px;
+}
+
+.model-detail-name-text {
+    font-family: "Showcard Gothic";
+    font-size: 24pt;
+    color: #daa520;
+}
+
+.model-detail-faction-text {
+    font-family: Courgette;
+    font-size: 14pt;
+    color: #252525;
+}
+
+.model-detail-defence-chart {
+    height: 75px;
+}
+
+.model-detail-image {
+    width: 340px;
+    height: 469px;
+    border-radius: 8px;
+}
+.model-defence-list {
+    list-style: none;
+    margin-left: -60px;
+    border-radius: 8px;
+}
+
+.model-defence-item {
+    padding: 13px 0;
+    display: block;
+    overflow: auto;
+    font-family: Courgette;
+    font-size: 16pt;
+    color: #004250;
+}
+
+.model-defence-index-container {
+    text-align: right;
+    width: 25%;
+    float: left;
+    font-weight: 900;
+}
+
+.model-defence-name-container {
+    text-align: left;
+    width: 75%;
+    padding-left: 10px;
+    float: right;
+    font-weight: 100;
+}
+
+.model-defence-item:nth-child(even) {
+    background-color: #e5efef;
+}
+
+.model-defence-item:nth-child(odd) {
+    background-color: #a6b9b6;
+}
+
+.model-defence-item:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.model-defence-item:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.model-defence-name-container::first-letter {
+    text-transform: capitalize;
+}
+
+.model-physical-attributes {
+    background-color: #e5efef;
+    height: 86px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.model-physical-attributes-header {
+    width: 24%;
+    float: left;
+    font-size: 11pt;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 3px;
+    border: 2px solid #004250;
+    border-radius: 5px;
+    background-color: #a6b9b6;
+    color: #004250;
+    font-family: Courgette;
+    font-weight: 900;
+    padding: 4px 0;
+    box-shadow: 4px 4px 8px;
+}
+
+.model-physical-attributes-value {
+    width: 24%;
+    float: left;
+    font-size: 11pt;
+    text-align: center;
+    margin-top: 12px;
+    margin-left: 3px;
+    font-family: Courgette;
+    font-weight: 900;
+    color: #004250;
+}
+
+.model-physical-attributes-value > span {
+    padding: 5px 11px;
+    border: 2px solid #004250;
+    border-radius: 16px;
+    background-color: #a6b9b6;
+    box-shadow: 4px 4px 8px;
+}
+
+.model-detail-name-faction-right {
+    text-align: center;
+    height: 130px;
+}

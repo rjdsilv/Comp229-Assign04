@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 
@@ -7,12 +8,14 @@ namespace Comp229_Assign04.Helpers
 {
     public class EmailHelper
     {
+        // Constants declaration.
         private const string SENDER_NAME = "Game.Me Web Application";
         private const string SENDER_EMAIL = "cc-comp229f2016@outlook.com";
         private const string SENDER_PASSWD = "comp229pwd";
         private const string EMAIL_SUBJECT = "[Game.Me] - Exported Model File";
-        private const string EMAIL_BODY = "Hi, {0}. Thanks for using the Game.Me Web Application.\n\nThe exported model file you requeste is attached in this email.\n\n\nAll the best.\n\nGame.Me Team";
-        private const string SMTP_HOST = "mailserver.example.com";
+        private const string EMAIL_BODY = "Hi, {0}. Thanks for using the Game.Me Web Application.\n\nThe exported model file you requested follows attached.\n\n\nAll the best.\n\nGame.Me Team";
+        private const string SMTP_HOST = "smtp-mail.outlook.com";
+        private const int SMTP_PORT = 587;
 
         /// <summary>
         /// Sends an e-mail with the exported JSON file to the given address.
@@ -38,7 +41,9 @@ namespace Comp229_Assign04.Helpers
 
                         // Connecting to the SMTP server and sending the e-mail.
                         smtpClient.Host = SMTP_HOST;
-                        smtpClient.Credentials = new System.Net.NetworkCredential(SENDER_NAME, SENDER_PASSWD);
+                        smtpClient.Port = SMTP_PORT;
+                        smtpClient.EnableSsl = true;
+                        smtpClient.Credentials = new NetworkCredential(SENDER_EMAIL, SENDER_PASSWD);
                         smtpClient.Send(message);
                     }
                     catch (Exception ex)
