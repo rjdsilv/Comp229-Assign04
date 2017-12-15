@@ -97,15 +97,111 @@
                     </div>
 
                     <div class="col-sm-6 model-detail-right">
-                        <div class="col-sm-8 model-detail-name-faction-right">
-                            <span class="model-detail-name-text"><%= selectedModel.Name %></span>
-                            <br />
-                            <span class="model-detail-faction-text"><%= selectedModel.Faction %></span>
+                        <div class="col-sm-12" style="overflow: auto">
+                            <div class="col-sm-8 model-detail-name-faction-right">
+                                <span class="model-detail-name-text"><%= selectedModel.Name %></span>
+                                <br />
+                                <span class="model-detail-faction-text"><%= selectedModel.Faction %></span>
+                                <div class="model-detail-trait-type">
+                                    <span class="model-detail-trait-type-text" style="font-size: 25pt;">.</span>
+                                    <% if (null != selectedModel.Traits) { %>
+                                        <% foreach (string trait in selectedModel.Traits) { %>
+                                            <span class="model-detail-trait-type-text">
+                                                <%= trait %>
+                                            </span>
+                                            <span class="model-detail-trait-type-text" style="font-size: 25pt;">.</span>
+                                        <% } %>
+                                    <% } %>
+
+                                    <% if (null != selectedModel.Types) { %>
+                                        <% foreach (string type in selectedModel.Types) { %>
+                                            <span class="model-detail-trait-type-text">
+                                                <%= type %>
+                                            </span>
+                                        <% } %>
+                                    <% } %>
+                                    <span class="model-detail-trait-type-text" style="font-size: 25pt;">.</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 model-detail-soft-abilities">
+                                <div class="model-detail-soft-abilities-left">
+                                    Rank
+                                </div>
+                                <div class="model-detail-soft-abilities-right">
+                                    <%= selectedModel.Rank %>
+                                </div>
+
+                                <div class="model-detail-soft-abilities-left">
+                                    Base
+                                </div>
+                                <div class="model-detail-soft-abilities-right">
+                                    <%= selectedModel.Base %>
+                                </div>
+
+                                <div class="model-detail-soft-abilities-left">
+                                    Size
+                                </div>
+                                <div class="model-detail-soft-abilities-right">
+                                    <%= selectedModel.Size %>
+                                </div>
+
+                                <div class="model-detail-soft-abilities-left">
+                                    D. Z.
+                                </div>
+                                <div class="model-detail-soft-abilities-right">
+                                    <%= selectedModel.DeploymentZone %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-4 model-detail-defence-chart">
-                            &nbsp;
-                        </div>
+                        <% foreach (Comp229_Assign04.Models.Action action in selectedModel.Actions) { %>
+                            <div class="col-sm-12">
+                                <div class="model-action-container">
+                                    <div class="model-action-header">
+                                        <%= action.Name %>
+                                    </div>
+                                    <div class="model-action-content">
+                                        <div class="model-action-content-attributes">
+                                            <div class="col-sm-6"><%= action.Name %></div>
+                                            <div class="col-sm-3"><%= action.Rating %></div>
+                                            <div class="col-sm-3"><%= action.Range %></div>
+                                        </div>
+                                        <% if (!string.IsNullOrWhiteSpace(action.Description)) { %>
+                                            <div class="col-sm-12 model-action-content-description">
+                                                <%= action.Description %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+
+                        <% if (null != selectedModel.SpecialAbilities) { %>
+                            <div class="col-sm-12">
+                                <div class="model-action-container">
+                                    <div class="model-ability-header">
+                                        Special Abilities
+                                    </div>
+                                    <div class="col-sm-12 model-ability-content">
+                                        <% foreach (Comp229_Assign04.Models.SpecialAbility ability in selectedModel.SpecialAbilities) { %>
+                                            <div>
+                                                <b><%= ability.Name %></b>
+                                                <% if (!string.IsNullOrWhiteSpace(ability.Description)) { %>
+                                                    <b>: </b><%= ability.Description %>
+                                                <% } %>
+                                            </div>
+                                            <br />
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
                     </div>
+                </div>
+                <hr />
+                <div class="model-buttons-container">
+                    <asp:LinkButton ID="UpdateModelLinkButton" CssClass="model-input-button" Text="Update Model" runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="DeleteModelButton" CssClass="model-input-button" Text="Delete Model" runat="server" OnClick="DeleteModelButton_Click" />
                 </div>
             <% } %>
         </div>

@@ -229,6 +229,11 @@ a {
 .model-detail-container {
     width: 100%;
     height: 100%;
+    overflow: auto;
+}
+
+.model-detail-right {
+    margin-bottom: 15px;
 }
 
 .model-detail-name-faction {
@@ -355,5 +360,94 @@ a {
 
 .model-detail-name-faction-right {
     text-align: center;
-    height: 130px;
+    height: 140px;
+}
+
+.model-detail-trait-type {
+    background-color: #5c7679;
+    height: 58px;
+    line-height: 58px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px;
+}
+
+.model-detail-trait-type-text {
+    font-family: Courgette;
+    font-size: 12pt;
+    color: #fff;
+    padding: 0 5px;
+}
+
+.model-detail-soft-abilities {
+    height: 140px;
+}
+
+.model-detail-soft-abilities-left {
+    width: 74%;
+    text-align: right;
+    float: left;
+    font-family: Courgette;
+    background-color: #a6b9b6;
+    margin-bottom: 3px;
+    padding: 3px 8px 2px 0;
+    border-radius: 5px;
+    color: #004250;
+}
+
+.model-detail-soft-abilities-right {
+    width: 25%;
+    text-align: left;
+    float: right;
+    font-family: Courgette;
+    font-weight: bolder;
+    background-color: #5c7679;
+    margin-bottom: 3px;
+    padding: 3px 0 2px 8px;
+    border-radius: 5px;
+    color: white;
+}
+
+.model-action-container {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px; 
+}
+
+.model-ability-header,
+.model-action-header {
+    padding: 5px 0;
+    text-align: center;
+    font-family: Courgette;
+    font-weight: bolder;
+    font-size: 16pt;
+    color: #004250;
+    background-color: #e5efef;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.model-ability-content,
+.model-action-content {
+    font-family: Courgette;
+    color: #004250;
+    background-color: #a6b9b6;
+    border-top: 8px solid #ac8730;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.model-action-content-attributes {
+    font-weight: bolder;
+    margin-bottom: 5px;
+    overflow: auto;
+    display: block;
+}
+
+.model-buttons-container {
+    margin-top: 20px;
+    text-align: center;
+    overflow: auto;
+    padding-top: 15px;
+    height: 70px;
 }

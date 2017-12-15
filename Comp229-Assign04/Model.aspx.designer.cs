@@ -38,5 +38,23 @@ namespace Comp229_Assign04 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater ModelRepeater;
+        
+        /// <summary>
+        /// UpdateModelLinkButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton UpdateModelLinkButton;
+        
+        /// <summary>
+        /// DeleteModelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeleteModelButton;
     }
 }

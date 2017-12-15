@@ -35,6 +35,16 @@ namespace Comp229_Assign04
         }
 
         /// <summary>
+        /// Deletes the model from the list and redirects the user to the Home Page.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event arguments.</param>
+        protected void DeleteModelButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
         /// Displays the model list on the user's screen..
         /// </summary>
         private void DisplayModelList()
