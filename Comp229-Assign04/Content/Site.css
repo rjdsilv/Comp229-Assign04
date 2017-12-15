@@ -15,7 +15,7 @@ footer {
 }
 
 hr {
-    border-top: 1px solid #aaa;
+    border-top: 1px solid #004250;
 }
 
 /* Set some basic padding to keep content from hitting the edges */
@@ -82,7 +82,7 @@ a {
 }
 
 .model-outer-border {
-    border: 1px solid #aaa;
+    border: 1px solid #004250;
     border-radius: 5px;
     padding: 7px 7px;
     height: 205px;
@@ -96,11 +96,14 @@ a {
 }
 
 .model-name {
-    font-size: 20px;
-    font-weight: bold;
     height: 30px;
-    color: #757575;
     margin-bottom: 10px;
+}
+
+.model-name > a {
+    font-family: "Showcard Gothic";
+    font-size: 16px;
+    color: #daa520;
 }
 
 .model-image {
@@ -115,7 +118,7 @@ a {
 }
 
 .model-inclusion-panel {
-    border: 1px solid #aaa;
+    border: 1px solid #004250;
     border-radius: 8px;
     text-align: center;
     padding: 5px;
@@ -157,7 +160,7 @@ a {
 }
 
 .model-inclusion-subpanel {
-    border: 1px solid #aaa;
+    border: 1px solid #004250;
     border-radius: 8px;
     text-align: center;
     padding: 5px;
@@ -410,8 +413,9 @@ a {
 .model-action-container {
     width: 100%;
     margin-top: 20px;
+    border: 3px solid #004250;
     border-radius: 8px;
-    box-shadow: 4px 4px 8px; 
+    box-shadow: 4px 4px 8px;
 }
 
 .model-ability-header,
@@ -423,8 +427,8 @@ a {
     font-size: 16pt;
     color: #004250;
     background-color: #e5efef;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .model-ability-content,
@@ -433,13 +437,13 @@ a {
     color: #004250;
     background-color: #a6b9b6;
     border-top: 8px solid #ac8730;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .model-action-content-attributes {
     font-weight: bolder;
-    margin-bottom: 5px;
+    padding-bottom: 5px;
     overflow: auto;
     display: block;
 }
@@ -450,4 +454,9 @@ a {
     overflow: auto;
     padding-top: 15px;
     height: 70px;
+}
+
+.model-ability-content,
+.model-action-content-description {
+    text-align: justify;
 }

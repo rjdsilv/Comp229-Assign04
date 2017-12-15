@@ -23,7 +23,7 @@ namespace Comp229_Assign04.Helpers
         /// <param name="toAddr">The receiver email address</param>
         /// <param name="toName">The receiver name</param>
         /// <param name="basePath">The JSON file's base path</param>
-        public static void SendEmail(string toAddr, string toName, string basePath)
+        public static bool SendEmail(string toAddr, string toName, string basePath)
         {
             // Need to dispose both SMTP client and Mail message in order to unlock he file being sent as attachment.
             using (SmtpClient smtpClient = new SmtpClient())
@@ -43,8 +43,11 @@ namespace Comp229_Assign04.Helpers
                         smtpClient.Host = SMTP_HOST;
                         smtpClient.Port = SMTP_PORT;
                         smtpClient.EnableSsl = true;
+                        smtpClient.UseDefaultCredentials = false;
                         smtpClient.Credentials = new NetworkCredential(SENDER_EMAIL, SENDER_PASSWD);
                         smtpClient.Send(message);
+
+                        return true;
                     }
                     catch (Exception ex)
                     {
@@ -52,6 +55,8 @@ namespace Comp229_Assign04.Helpers
                         Trace.TraceError(string.Format("The email could not be sent!!! - Exception message {0}", ex.Message));
                         Trace.Flush();
                     }
+
+                    return false;
                 }
             }
         }

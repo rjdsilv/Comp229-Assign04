@@ -11,8 +11,8 @@
             <div><%= message %></div>
         </asp:Panel>
 
-        <%-- Model Details --%>
         <div class="model-list-container">
+            <%-- Model Details --%>
             <% if (string.IsNullOrWhiteSpace(Request.QueryString["model"])) { %>
                 <asp:Repeater ID="ModelRepeater" runat="server">
                     <ItemTemplate>

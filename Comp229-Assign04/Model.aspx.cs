@@ -63,6 +63,9 @@ namespace Comp229_Assign04
             ModelRepeater.DataBind();
         }
 
+        /// <summary>
+        /// Gets the model from the model list 
+        /// </summary>
         private void SelectModel()
         {
             var modelName = Request.QueryString["model"];
@@ -72,7 +75,10 @@ namespace Comp229_Assign04
             if (null != modelList)
             {
                 var modelQuery = from model in modelList where model.Name == modelName select model;
-                selectedModel = modelQuery.First<Mini>();
+                if (modelQuery.Count<Mini>() > 0)
+                {
+                    selectedModel = modelQuery.First<Mini>();
+                }
             }
         }
     }

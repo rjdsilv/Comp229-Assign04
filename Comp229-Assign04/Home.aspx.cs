@@ -68,8 +68,14 @@ namespace Comp229_Assign04
         /// <param name="e">The event arguments</param>
         protected void SendEmailButton_Click(object sender, EventArgs e)
         {
-            EmailHelper.SendEmail(EmailAddressTextBox.Text, EmailNameTextBox.Text, Server.MapPath("."));
-            ShowSuccessMessage(string.Format("Model file successfully sent to {0} at {1}", EmailNameTextBox.Text, EmailAddressTextBox.Text));
+            if (EmailHelper.SendEmail(EmailAddressTextBox.Text, EmailNameTextBox.Text, Server.MapPath(".")))
+            {
+                ShowSuccessMessage(string.Format("Model file successfully sent to {0} at {1}", EmailNameTextBox.Text, EmailAddressTextBox.Text));
+            }
+            else
+            {
+                ShowErrorMessage("Could not send the e-mail! Please contact the support.");
+            }
             ClearPageTextBoxes(this);
         }
 
