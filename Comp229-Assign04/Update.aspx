@@ -121,7 +121,7 @@
                                 Display="Dynamic"
                                 Type="Integer"
                                 MinimumValue="1"
-                                MaximumValue="20"
+                                MaximumValue="99"
                                 ErrorMessage="Rank must be >= 1"
                                 CssClass="model-input-error"
                                 ValidationGroup="AddModelValidationGroup"
@@ -140,7 +140,7 @@
                                 Display="Dynamic"
                                 Type="Integer"
                                 MinimumValue="1"
-                                MaximumValue="20"
+                                MaximumValue="99"
                                 ErrorMessage="Base must be > 1"
                                 CssClass="model-input-error"
                                 ValidationGroup="AddModelValidationGroup"
@@ -159,7 +159,7 @@
                                 Display="Dynamic"
                                 Type="Integer"
                                 MinimumValue="1"
-                                MaximumValue="20"
+                                MaximumValue="99"
                                 ErrorMessage="Size must be > 1"
                                 CssClass="model-input-error"
                                 ValidationGroup="AddModelValidationGroup"
@@ -297,7 +297,7 @@
                                 Display="Dynamic"
                                 Type="Integer"
                                 MinimumValue="1"
-                                MaximumValue="20"
+                                MaximumValue="99"
                                 ErrorMessage="Mobility must be >= 1"
                                 CssClass="model-input-error"
                                 ValidationGroup="AddModelValidationGroup"
@@ -316,7 +316,7 @@
                                 Display="Dynamic"
                                 Type="Integer"
                                 MinimumValue="1"
-                                MaximumValue="20"
+                                MaximumValue="99"
                                 ErrorMessage="Will Power must be > 1"
                                 CssClass="model-input-error"
                                 ValidationGroup="AddModelValidationGroup"
@@ -335,7 +335,7 @@
                                 Display="Dynamic"
                                 Type="Integer"
                                 MinimumValue="1"
-                                MaximumValue="20"
+                                MaximumValue="99"
                                 ErrorMessage="Mobility must be > 1"
                                 CssClass="model-input-error"
                                 ValidationGroup="AddModelValidationGroup"
@@ -354,7 +354,7 @@
                                 Display="Dynamic"
                                 Type="Integer"
                                 MinimumValue="1"
-                                MaximumValue="20"
+                                MaximumValue="99"
                                 ErrorMessage="Wounds must be > 1"
                                 CssClass="model-input-error"
                                 ValidationGroup="AddModelValidationGroup"
@@ -393,137 +393,6 @@
                                 runat="server" />
                         </div>
                     </div>
-
-                    <!--
-                    <%-- Action Panel --%>
-                    <asp:Panel ID="IncludeModelActionSubPanel" runat="server" CssClass="model-inclusion-subpanel">
-                        <div class="model-inclusion-subpanel-title">
-                            <asp:Label Text="Action" runat="server" />
-                        </div>
-                        <%-- Action inputs first line --%>
-                        <div class="model-input-container">
-                            <div class="col-sm-3">
-                                <asp:TextBox ID="ModelActionNameTextBox"
-                                    ToolTip="Enter the action name here"
-                                    TextMode="SingleLine"
-                                    CssClass="model-input"
-                                    runat="server"
-                                    placeholder="Action Name" />
-                            </div>
-                            <div class="col-sm-3">
-                                <asp:TextBox ID="ModelActionTypeTextBox"
-                                    ToolTip="Enter the action type here"
-                                    TextMode="SingleLine"
-                                    CssClass="model-input"
-                                    runat="server"
-                                    placeholder="Action Type" />
-                            </div>
-                            <div class="col-sm-3">
-                                <asp:TextBox ID="ModelActionRatingTextBox"
-                                    ToolTip="Enter the action rating here"
-                                    TextMode="Number"
-                                    CssClass="model-input"
-                                    runat="server"
-                                    placeholder="Action Rating" />
-                            </div>
-                            <div class="col-sm-3">
-                                <asp:TextBox ID="ModelActionRangeTextBox"
-                                    ToolTip="Enter the action range here"
-                                    TextMode="SingleLine"
-                                    CssClass="model-input"
-                                    runat="server"
-                                    placeholder="Action Range" />
-                            </div>
-
-                            <%--  Validation for action inputs first line --%>
-                            <div class="col-sm-3 model-validator-message-container">
-                                <asp:RequiredFieldValidator ID="ModelActionNameTextBox_RFV"
-                                    ControlToValidate="ModelActionNameTextBox"
-                                    Display="Dynamic"
-                                    ErrorMessage="The action name is required"
-                                    CssClass="model-input-error"
-                                    ValidationGroup="AddModelValidationGroup"
-                                    runat="server" />
-                            </div>
-                            <div class="col-sm-3 model-validator-message-container">
-                                <asp:RequiredFieldValidator ID="ModelActionTypeTextBox_RFV"
-                                    ControlToValidate="ModelActionTypeTextBox"
-                                    Display="Dynamic"
-                                    ErrorMessage="The action type is required"
-                                    CssClass="model-input-error"
-                                    ValidationGroup="AddModelValidationGroup"
-                                    runat="server" />
-                            </div>
-                            <div class="col-sm-3 model-validator-message-container">
-                                <asp:RequiredFieldValidator ID="ModelActionRatingTextBox_RFV"
-                                    ControlToValidate="ModelActionRatingTextBox"
-                                    Display="Dynamic"
-                                    ErrorMessage="The action range is required"
-                                    CssClass="model-input-error"
-                                    ValidationGroup="AddModelValidationGroup"
-                                    runat="server" />
-                                <asp:RangeValidator ID="ModelActionRatingTextBox_RV"
-                                    ControlToValidate="ModelActionRatingTextBox"
-                                    Display="Dynamic"
-                                    Type="Integer"
-                                    MinimumValue="1"
-                                    MaximumValue="20"
-                                    ErrorMessage="Action rating must be > 1"
-                                    CssClass="model-input-error"
-                                    ValidationGroup="AddModelValidationGroup"
-                                    runat="server" />
-                            </div>
-                            <div class="col-sm-3 model-validator-message-container">
-                                <asp:RequiredFieldValidator ID="ModelActionRangeTextBox_RFV"
-                                    ControlToValidate="ModelActionRangeTextBox"
-                                    Display="Dynamic"
-                                    ErrorMessage="The action range is required"
-                                    CssClass="model-input-error"
-                                    ValidationGroup="AddModelValidationGroup"
-                                    runat="server" />
-                            </div>
-                        </div>
-
-                        <%-- Action inputs second line --%>
-                        <div class="model-input-container">
-                            <div class="col-sm-12">
-                                <asp:TextBox ID="ModelActionDescriptionTextBox"
-                                    ToolTip="Enter the action description here"
-                                    TextMode="SingleLine"
-                                    CssClass="model-input"
-                                    runat="server"
-                                    placeholder="(Optional) Action Description" />
-                            </div>
-                        </div>
-                    </asp:Panel>
-
-                    <%-- Special Ability panel --%>
-                    <asp:Panel ID="IncludeModelSpecialAbilitiesSubPanel" runat="server" CssClass="model-inclusion-subpanel">
-                        <div class="model-inclusion-subpanel-title">
-                            <asp:Label Text="Special Ability" runat="server" />
-                        </div>
-
-                        <%-- Special Ability inputs first line --%>
-                        <div class="model-input-container">
-                            <div class="col-sm-3">
-                                <asp:TextBox ID="ModelSpecialAbilityNameTextBox"
-                                    ToolTip="Enter the special ability name here"
-                                    TextMode="SingleLine"
-                                    CssClass="model-input"
-                                    runat="server"
-                                    placeholder="(Optional) Special Ability Name" />
-                            </div>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="ModelSpecialAbilityDescriptionTextBox"
-                                    ToolTip="Enter special ability description here"
-                                    TextMode="SingleLine"
-                                    CssClass="model-input"
-                                    runat="server"
-                                    placeholder="(Optional) Special Ability Description" />
-                            </div>
-                        </div>
-                    </asp:Panel>
-                    -->
                 </div>
 
                 <div class="col-sm-12 model-input-container" style="height: 50px;">
