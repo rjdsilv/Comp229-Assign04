@@ -57,6 +57,16 @@ namespace Comp229_Assign04.Models
 
         [JsonProperty("imageUrl")]
         public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Overrides the method equals to compare Minis by its name.
+        /// </summary>
+        /// <param name="obj">The object to be compared.</param>
+        /// <returns>true if the object is a Mini with same name. false otherwise.</returns>
+        public override bool Equals(object obj)
+        {
+            return obj is Mini && (obj as Mini).Name == Name;
+        }
     }
 
     /// <summary>

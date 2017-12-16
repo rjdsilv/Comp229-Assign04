@@ -266,7 +266,7 @@
   },
   {
     "name": "Model Name 3",
-    "faction": "Faction",
+    "faction": "New Faction",
     "rank": 2,
     "base": 5,
     "size": 5,
@@ -300,6 +300,47 @@
         "rating": 2,
         "range": "9",
         "description": null
+      }
+    ],
+    "specialAbilities": null,
+    "imageUrl": "http://wrathofkings.com/ks/wp-content/uploads/2013/09/SHwrath2_front.jpg"
+  },
+  {
+    "name": "The Reaper",
+    "faction": "Reaper",
+    "rank": 10,
+    "base": 4,
+    "size": 8,
+    "deploymentZone": "A",
+    "traits": [
+      "Super"
+    ],
+    "types": [
+      "Leader"
+    ],
+    "defenseChart": [
+      "OVERPOWER",
+      "STRIKE",
+      "STRIKE",
+      "STRIKE",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK",
+      "MAGIC",
+      "MAGIC",
+      "MAGIC"
+    ],
+    "mobility": 7,
+    "willpower": 10,
+    "resiliance": 8,
+    "wounds": 2,
+    "actions": [
+      {
+        "name": "Reap",
+        "type": "Magic",
+        "rating": 12,
+        "range": "9",
+        "description": "Reap the soul of the oponent"
       }
     ],
     "specialAbilities": null,

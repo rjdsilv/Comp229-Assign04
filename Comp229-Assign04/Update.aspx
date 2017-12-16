@@ -1,8 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="Comp229_Assign04.Update" %>
+﻿<%@ Page Title="Update Model" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="Comp229_Assign04.Update" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container body-content">
         <%-- Error Panel --%>
         <asp:Panel ID="ErrorPanel" runat="server" CssClass="model-error-message-hidden">
+            <div><%= message %></div>
+        </asp:Panel>
+
+        <%-- Student success message panel --%>
+        <asp:Panel ID="SuccessPanel" runat="server" CssClass="model-success-message-hidden">
             <div><%= message %></div>
         </asp:Panel>
 
@@ -46,6 +51,8 @@
                                 ToolTip="Enter the model name here"
                                 TextMode="SingleLine"
                                 CssClass="model-input"
+                                Enabled="false"
+                                ReadOnly="true"
                                 runat="server"
                                 placeholder="Model Name" />
                         </div>

@@ -174,7 +174,8 @@ namespace Comp229_Assign04
         private void ShowErrorMessage(string message)
         {
             this.message = string.Format("<hr/>The following unexpected error has occurred: <b>{0}</b><hr/>", message);
-            ErrorPanel.CssClass = "model-error-message";
+            SuccessPanel.CssClass = "model-error-message";
+            ErrorPanel.CssClass = "model-error-message-hidden";
         }
 
         /// <summary>
@@ -185,6 +186,7 @@ namespace Comp229_Assign04
         {
             this.message = string.Format("<hr/>{0}<hr/>", message);
             SuccessPanel.CssClass = "model-success-message";
+            ErrorPanel.CssClass = "model-error-message-hidden";
         }
     }
 }
